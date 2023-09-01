@@ -1,0 +1,9 @@
+<p>pokedex works!</p>
+<ul *ngIf="pokelist">
+  <li *ngFor="let poke of pokelist.results">
+    {{poke.name}}
+  </li>
+</ul>
+
+<button (click)="previous()">Afficher 20 précédents</button>
+<button (click)="next()">Afficher 20 suivants</button>

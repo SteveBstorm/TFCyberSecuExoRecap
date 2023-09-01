@@ -1,5 +1,14 @@
-<h3>Gestion des fans de série</h3>
-<a routerLink="list">Liste de personne</a> |
-<a routerLink="create">Ajouter une personne</a>
-<hr />
-<router-outlet></router-outlet>
+<header>
+  <h3>Gestion des fans de série</h3>
+  <button *ngIf="!isConnected" (click)="login()">Connexion</button>
+  <button *ngIf="isConnected" (click)="logout()">Deconnexion</button>
+</header>
+<div class="main">
+
+  <div class="nav">
+    <app-nav></app-nav>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

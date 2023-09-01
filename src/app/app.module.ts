@@ -8,6 +8,10 @@ import { CreateComponent } from './components/create/create.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { UpdateComponent } from './components/update/update.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavComponent } from './nav/nav.component';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { PokedetailComponent } from './components/pokedetail/pokedetail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,13 +19,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListComponent,
     CreateComponent,
     DetailComponent,
-    UpdateComponent
+    UpdateComponent,
+    NavComponent,
+    PokedexComponent,
+    PokedetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

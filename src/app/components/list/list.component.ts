@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from 'src/app/models/person.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -11,13 +12,20 @@ import { PersonService } from 'src/app/services/person.service';
 export class ListComponent {
 
   listPerson! : Person[]
+  isConnected! : boolean
   constructor(
     private service : PersonService,
-    private router : Router
+    private router : Router,
+    private authService : AuthService
     ){}
 
   ngOnInit() {
     this.listPerson = this.service.personList
+
+    this.authService.loginSubject.subscribe((etat :boolean) => {
+      this.isConnected = etat
+    })
+    this.authService.loginSubject.next(this.authService.isConnected)
   }
 
   delete(index : number) {

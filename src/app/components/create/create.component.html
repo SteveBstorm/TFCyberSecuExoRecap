@@ -1,0 +1,29 @@
+<h3>Ajouter un fan
+</h3>
+<fieldset>
+  <form [formGroup]="myForm" (ngSubmit)="savePerson()">
+    <p>
+      <label>Nom : </label>
+      <input type="text" formControlName="name">
+    </p>
+    <p>
+      <label>Email : </label>
+      <input type="email" formControlName="email">
+    </p>
+    <p>
+      <label>Date de naissance : </label>
+      <input type="date" formControlName="birthdate">
+    </p>
+    <fieldset>
+      <legend>Liste de série</legend>
+      <button type="button" (click)="addTvShow()">+ Serie</button>
+      <ul formArrayName="favoriteTVShow">
+        <li *ngFor="let show of getShowArray().controls; let i = index;">
+          Série {{i+1}} : <input type="text" [formControlName]="i">
+          <button type="button" (click)="removeTvShow(i)">-X-</button>
+        </li>
+      </ul>
+    </fieldset>
+    <button type="submit">Valider</button>
+  </form>
+</fieldset>

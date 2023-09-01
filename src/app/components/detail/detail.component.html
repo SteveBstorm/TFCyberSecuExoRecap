@@ -1,0 +1,15 @@
+<h3>Profil de {{currentPerson.name}}</h3>
+<fieldset>
+  <p>
+    Date de naissance : {{currentPerson.birthdate | date : 'dd MM yyyy'}}
+  </p>
+  <p>
+    Email : {{currentPerson.email}}
+  </p>
+  <h4>Liste de séries</h4>
+  <ul>
+    <li *ngFor="let s of currentPerson.favoriteTVShow">
+      {{s}}
+    </li>
+  </ul>
+</fieldset>
